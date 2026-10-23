@@ -1,9 +1,9 @@
 # Most Recent Common Advisor
 
 > [!NOTE]
-> **Built entirely by Claude.** All code in this repository was written by Claude (Anthropic) through conversation alone; Vinay did not write any of it. This CSV-driven version was built by Claude Opus 5.5 (`claude-opus-5-5`) in October 2026, starting from an earlier single-page version that Claude also generated.
+> **Built entirely by Claude.** All code in this repository was written by Claude (Anthropic) through conversation alone; Vinay did not write any of it. This CSV-driven version was built by Claude Opus 5.5 (`claude-opus-5-5`) in October 2026, starting from an earlier single-page version that was compiled by Vinay over a year which was built by Claude.
 
-An interactive academic genealogy of evolutionary biology, genetics and ornithology: who trained whom, who worked together, and who argued. Built as a study aid for a PhD general exam.
+An interactive academic genealogy of evolutionary biology, genetics and ornithology: who trained whom, who worked together, and who argued. Built as a study aid for Vinay's PhD General exam in April 2026. This is now completely re-worked and made public. 
 
 The page code is fixed; the network comes from one spreadsheet, `data/people.csv`. Edit the CSV and the site updates.
 
