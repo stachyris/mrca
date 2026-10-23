@@ -1,0 +1,13 @@
+{
+  "title": "Evolutionary Biology",
+  "subtitle": "Academic Genealogy & Network",
+  "data": "data/people.csv",
+  "eras": [
+    { "id": "historical",       "label": "Pre-1900",         "color": "#9b7a4a" },
+    { "id": "early_genetics",   "label": "Early Genetics",   "color": "#8a6eb5" },
+    { "id": "modern_synthesis", "label": "Modern Synthesis", "color": "#5e9e74" },
+    { "id": "molecular",        "label": "Molecular Era",    "color": "#5d8cb5" },
+    { "id": "ornithology",      "label": "Ornithology",      "color": "#5db5a8" },
+    { "id": "contemporary",     "label": "Contemporary",     "color": "#b56e6e" }
+  ]
+}
