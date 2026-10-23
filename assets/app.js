@@ -19,7 +19,7 @@ const ctx = canvas.getContext('2d');
 const state = {
   config: { eras: [] }, eras: {}, columns: [], nodes: [], edges: [], byId: {}, adj: {}, issues: [],
   source: '', loadError: '',
-  view: { x: 0, y: 0, k: 1 }, W: 0, H: 0,
+  view: { x: 0, y: 0, k: 1 }, W: 0, H: 0, viewMoved: false,
   hover: null, selected: null, era: 'all', query: '', simLeft: 0,
 };
 
@@ -183,6 +183,7 @@ function fitView() {
   const [x0, x1, y0, y1] = [Math.min(...xs), Math.max(...xs), Math.min(...ys), Math.max(...ys)];
   const k = Math.min(state.W / (x1 - x0 + 80), state.H / (y1 - y0 + 80), 1.6);
   state.view = { k, x: state.W / 2 - (x0 + x1) / 2 * k, y: state.H / 2 - (y0 + y1) / 2 * k };
+  state.viewMoved = false;
 }
 
 // ─── Drawing ─────────────────────────────────────────────────────
@@ -288,6 +289,7 @@ function zoomAt(cx, cy, factor) {
   v.x = cx - (cx - v.x) * (k / v.k);
   v.y = cy - (cy - v.y) * (k / v.k);
   v.k = k;
+  state.viewMoved = true;
 }
 
 const pointers = new Map();
@@ -322,6 +324,7 @@ canvas.addEventListener('pointermove', e => {
       canvas.classList.add('dragging');
       state.view.x = gesture.view.x + dx;
       state.view.y = gesture.view.y + dy;
+      state.viewMoved = true;
     }
   }
 });
@@ -358,7 +361,8 @@ window.addEventListener('drop', e => {
   loadFromFile(e.dataTransfer.files[0]);
 });
 
-window.addEventListener('resize', resize);
+// Re-fit when the canvas changes size (first layout, window resize, rotation) unless the view was panned or zoomed.
+new ResizeObserver(() => { resize(); if (!state.viewMoved) fitView(); }).observe(canvas);
 
 // ─── Filters and legend ──────────────────────────────────────────
 function renderFilters() {
