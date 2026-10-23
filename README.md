@@ -1,6 +1,6 @@
-# Evolutionary Biology — Academic Genealogy
+# Most Recent Common Advisor
 
-An interactive network of researchers in evolutionary biology, genetics and ornithology: who trained whom, who worked together, and who argued. Built as a study aid for a PhD general exam.
+An interactive academic genealogy of evolutionary biology, genetics and ornithology: who trained whom, who worked together, and who argued. Built as a study aid for a PhD general exam.
 
 The page code is fixed; the network comes from one spreadsheet, `data/people.csv`. Edit the CSV and the site updates.
 
